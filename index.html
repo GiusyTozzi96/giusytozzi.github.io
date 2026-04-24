@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giuseppina Rosaria Tozzi — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">GRT</div>
+    <ul class="nav-links">
+      <li><a href="#progetti">Progetti</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO / HOMEPAGE -->
+  <section class="hero" id="home">
+    <div class="hero-bg-text">DESIGN</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Portfolio Creativo</p>
+      <h1 class="hero-name">
+        <span class="name-line">GIUSEPPINA</span>
+        <span class="name-line">ROSARIA</span>
+        <span class="name-line">TOZZI</span>
+      </h1>
+      <p class="hero-tagline">Designer & Creativa — trasformo idee in esperienze visive che restano.</p>
+      <a href="#progetti" class="hero-cta">Scopri i miei lavori <span class="arrow">↓</span></a>
+    </div>
+    <div class="hero-side">
+      <div class="hero-badge">
+        <span>Disponibile per nuovi progetti</span>
+        <div class="badge-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGETTI -->
+  <section class="section" id="progetti">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2>Progetti</h2>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Card UX/UI -->
+      <div class="project-card">
+        <div class="project-img placeholder-img" style="background: #d8dfe8;">
+          <img src="img/Sezione Progetti UXUI.png" alt="Progetto UX/UI" class="project-image">
+        </div>
+        <div class="project-info">
+          <span class="project-tag">UX/UI Design</span>
+          <h3>Soluzioni per l'Esperienza Utente</h3>
+          <p>Esplora i miei lavori di UX/UI Design. Progetti nati per rispondere a bisogni diversi — dal benessere emotivo al monitoraggio dei dati — uniti da un unico obiettivo: creare esperienze digitali fluide, accessibili e visivamente curate.</p>
+          <a href="html/uxui.html" class="project-link">Vedi progetto →</a>
+        </div>
+      </div>
+
+      <!-- Card Graphic Design -->
+      <div class="project-card">
+        <div class="project-img placeholder-img" style="background: #e8d8df;">
+          <img src="img/Mockup_Graphic_Design.png" alt="Progetto Graphic Design" class="project-image">
+        </div>
+        <div class="project-info">
+          <span class="project-tag">Graphic Design</span>
+          <h3>Comunicazione Visiva</h3>
+          <p>Progetti di comunicazione visiva focalizzati sulla creazione di identità forti e coerenti. Ogni lavoro è una sintesi di ricerca estetica e strategia comunicativa, pensato per dare voce e forma a ogni idea.</p>
+          <a href="html/graphic.html" class="project-link">Vedi progetto →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="section section-dark" id="about">
+    <div class="section-header">
+      <span class="section-number light">02</span>
+      <h2 class="light">About Me</h2>
+    </div>
+    <div class="about-layout">
+      <div class="about-photo-wrap">
+        <div class="about-photo-placeholder">
+          <img src="img/foto-profilo.png" alt="Giuseppina Rosaria Tozzi" class="about-photo">
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="about-intro">Ciao, sono <em>Giuseppina Rosaria Tozzi</em> — designer con la passione per le forme, i colori e le storie che si raccontano senza parole.</p>
+        <p>Unisco la mente strategica del Graphic Design alla creazione di soluzioni digitali. <br>
+          La mia passione è tradurre concetti complessi in interfacce intuitive e accattivanti, applicando il Design Thinking per garantire che ogni esperienza sia funzionale e significativa. <br>
+          Il mio obiettivo è generare un impatto reale e positivo attraverso un design che migliori concretamente la vita degli utenti.</p>
+        <div class="skills-row">
+          <span class="skill-tag">Branding</span>
+          <span class="skill-tag">UI/UX</span>
+          <span class="skill-tag">Typography</span>
+          <span class="skill-tag">Illustrazione</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="section" id="contatti">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2>Contatti</h2>
+    </div>
+    <div class="contact-layout">
+      <a href="mailto:giusytozzi96@gmail.com" class="contact-email">giusytozzi96@gmail.com</a> <br>
+      <p>Tel: +39 329 4178166</p> <br>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/giuseppina-rosaria-tozzi-4058a7108/" class="social-link">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Giuseppina Rosaria Tozzi — Tutti i diritti riservati</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.project-card, .about-layout, .contact-layout').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    const detailObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.detail-inner').forEach(el => {
+      el.classList.add('reveal');
+      detailObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
