@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UX/UI Design — GRT</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">GRT</div>
+    <ul class="nav-links">
+      <li><a href="/index.html#progetti">Progetti</a></li>
+      <li><a href="/index.html#about">About Me</a></li>
+      <li><a href="/index.html#contatti">Contatti</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="detail-page">
+
+    <a href="/index.html" class="back-link">← Torna ai progetti</a>
+
+    <div class="detail-hero">
+      <div class="detail-img-wrap uxui">
+        <img src="/img/logo620.jpg" alt="UX/UI Design">
+      </div>
+      <div class="detail-text">
+        <span class="detail-tag">UX/UI Design</span>
+        <h1 class="detail-title">Soluzioni per l'Esperienza Utente</h1>
+        <p>Progettare un'interfaccia significa prima di tutto ascoltare gli utenti. Parto dalla ricerca e dalla mappatura dei bisogni per costruire flussi chiari, intuitivi e accessibili.</p>
+        <p>I prototipi nascono in Figma, vengono testati e iterati fino a raggiungere un equilibrio tra funzionalità ed estetica — perché un'app bella che non funziona non serve a nessuno.</p>
+        <p>Ogni progetto segue il processo di Design Thinking: empatia, definizione, ideazione, prototipazione e test, per soluzioni che rispondono a bisogni reali.</p>
+        <div class="badge-row">
+          <span class="badge">User Research</span>
+          <span class="badge">Wireframing</span>
+          <span class="badge">Prototyping</span>
+          <span class="badge">Figma</span>
+          <span class="badge">Design System</span>
+          <span class="badge">Accessibility</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item uxui"><img src="/img/logo616.jpg" alt="UX/UI screenshot"></div>
+      <!-- Aggiungi qui altre immagini del progetto -->
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Giuseppina Rosaria Tozzi — Tutti i diritti riservati</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graphic Design — GRT</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">GRT</div>
+    <ul class="nav-links">
+      <li><a href="/index.html#progetti">Progetti</a></li>
+      <li><a href="/index.html#about">About Me</a></li>
+      <li><a href="/index.html#contatti">Contatti</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="detail-page">
+
+    <a href="/index.html" class="back-link">← Torna ai progetti</a>
+
+    <div class="detail-hero">
+      <div class="detail-img-wrap graphic">
+        <img src="/img/logo66.jpg" alt="Graphic Design">
+      </div>
+      <div class="detail-text">
+        <span class="detail-tag">Graphic Design</span>
+        <h1 class="detail-title">Comunicazione Visiva</h1>
+        <p>Dal poster alla campagna social, dalla brochure all'editorial design: ogni progetto di comunicazione visiva è una sfida creativa che unisce rigore compositivo e libertà espressiva.</p>
+        <p>Lavoro con griglie tipografiche solide e gerarchie visive chiare, per materiali che comunicano al primo sguardo e rimangono memorabili nel tempo.</p>
+        <p>Ogni scelta — dal font al colore, dalla spaziatura al ritmo della pagina — è intenzionale e al servizio del messaggio da comunicare.</p>
+        <div class="badge-row">
+          <span class="badge">Editorial</span>
+          <span class="badge">Layout Design</span>
+          <span class="badge">Social Media</span>
+          <span class="badge">Print</span>
+          <span class="badge">Illustrazione</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item graphic"><img src="/img/logo67.jpg" alt="Graphic Design mockup"></div>
+      <!-- Aggiungi qui altre immagini del progetto -->
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Giuseppina Rosaria Tozzi — Tutti i diritti riservati</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

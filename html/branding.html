@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brand Identity & Logo Design — GRT</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    body { background-color: #f7f4ef; }
+    .detail-page { max-width: 1100px; margin: 120px auto 80px; padding: 0 40px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; color: #1a1a1a; text-decoration: none; opacity: 0.5; transition: opacity 0.2s; margin-bottom: 60px; }
+    .back-link:hover { opacity: 1; }
+    .detail-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 80px; }
+    .detail-img-wrap { border-radius: 16px; overflow: hidden; background: #f0ede8; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .detail-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-tag { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 16px; }
+    .detail-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 20px; color: #1a1a1a; }
+    .detail-text p { font-family: 'DM Sans', sans-serif; font-size: 0.97rem; line-height: 1.8; color: #555; margin-bottom: 16px; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .badge { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 500; padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.15); color: #333; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-top: 60px; }
+    .gallery-item { border-radius: 12px; overflow: hidden; background: #f0ede8; aspect-ratio: 4/3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 5vw;
+  background: rgba(247, 244, 239, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(140, 123, 107, 0.15);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  color: #2a2a2a;
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+}
+
+.nav-links li a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #2a2a2a;
+  opacity: 0.65;
+  transition: all 0.25s ease;
+}
+
+.nav-links li a:hover {
+  opacity: 1;
+}
+
+    @media (max-width: 768px) { .detail-hero { grid-template-columns: 1fr; gap: 40px; } .detail-page { padding: 0 24px; margin-top: 100px; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">GRT</div>
+    <ul class="nav-links">
+      <li><a href="/index.html#progetti">Progetti</a></li>
+      <li><a href="/index.html#about">About Me</a></li>
+      <li><a href="/index.html#contatti">Contatti</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="detail-page">
+
+    <a href="/index.html" class="back-link">← Torna ai progetti</a>
+
+    <div class="detail-hero">
+      <div class="detail-img-wrap">
+        <img src="img/logo66.jpg" alt="Brand Identity & Logo Design">
+      </div>
+      <div class="detail-text">
+        <span class="detail-tag">Branding</span>
+        <h1 class="detail-title">Brand Identity & Logo Design</h1>
+        <p>Il logo nasce dall’esigenza di rappresentare in modo distintivo la mia identità visiva come graphic designer. Il segno grafico si sviluppa a partire dalle iniziali del mio nome, reinterpretate attraverso un lettering elegante e fluido ispirato al font Edwardian Script ITC.</p>
+        <p>Le forme sono state rielaborate manualmente per ottenere un risultato unico e riconoscibile: le linee sinuose si trasformano in elementi naturali, dando vita a un fiore e a delle foglie. Questa scelta richiama concetti di crescita, creatività e attenzione al dettaglio, valori fondamentali nel mio approccio progettuale.</p>
+        <p>L’equilibrio tra decorazione e leggibilità permette al logo di mantenere versatilità e adattabilità su diversi supporti di comunicazione, sia digitali che cartacei.</p>
+        <p>Il progetto è stato sviluppato utilizzando Adobe Illustrator, strumento che ha consentito una costruzione precisa e scalabile del segno grafico.</p>
+        <div class="badge-row">
+          <span class="badge">Logo Design</span>
+          <span class="badge">Brand Guidelines</span>
+          <span class="badge">Typography</span>
+          <span class="badge">Color System</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galleria immagini del progetto -->
+    <div class="gallery">
+      <div class="gallery-item"><img src="img/Logo.png" alt="Logo principale"></div>
+      <!-- Aggiungi qui altre immagini del progetto -->
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Giuseppina Rosaria Tozzi — Tutti i diritti riservati</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
