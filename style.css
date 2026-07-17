@@ -3,82 +3,274 @@
    Stile: Editorial Minimal / Raffinato
    ============================================= */
 
+/* ========== ROOT & RESET ========== */
 :root {
-  --ink:        #1a1714;
-  --cream:      #f7f4ef;
-  --warm-mid:   #8c7b6b;
-  --accent:     #c9a96e;
-  --dark-bg:    #1a1714;
-  --light-card: #f0ebe3;
+  --ink:         #131313; /* Un nero più profondo e contemporaneo */
+  --cream:       #f4f1eb; /* Un tono "carta" più neutro e sofisticato */
+  --warm-mid:    #686156; /* Un marrone/grigio desaturato per i testi secondari */
+  --accent:      #a68b5c; /* Un oro più opaco, meno saturo */
+  --dark-bg:     #181716; 
+  --light-card: #eae6dd; /* Colore per le card leggermente più scuro dello sfondo */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'DM Sans', sans-serif;
   --transition:   0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+:root {
+  --allineamento-sinistro: 6.5vw; 
+  --allineamento-destro: 6.5vw;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
+/* ============================================================
+   SFONDO UNICO E CONTINUO PER TUTTA LA PAGINA
+   ============================================================ */
 body {
   font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--ink);
+  color: #f4f3ef;
   overflow-x: hidden;
   font-size: 16px;
   line-height: 1.7;
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  background: linear-gradient(180deg,
+    #1a0214 0%,      /* hero: quasi nero */
+    #2b041f 8.75%,
+    #3b052c 17.5%,
+    #52163f 22%,
+    #682d54 25%,     /* fine hero / inizio progetti */
+    #a97599 29.5%,
+    #ebdbe5 35.5%,
+    #ffffff 41.5%,
+    #ffffff 55%,     /* fine progetti / inizio about */
+    #f9ebe1 65%,
+    #ecd3c3 75%,     /* fine about / inizio contatti */
+    #c55a38 81.8%,
+    #a23f20 92%,     /* fine contatti / footer */
+    #a23f20 100%
+  );
+  background-attachment: scroll;
 }
 
-/* ========== NAVBAR ========== */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
+/* Specifico per le pagine con sfondo chiaro fisso (come l'elenco progetti) */
+body.light-page {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+
+
+/* 1. HERO */
+#home {
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;   
+  justify-content: center !important;  
+  align-items: flex-start !important; 
+  box-sizing: border-box;
+  padding-bottom: 15vh !important;     
+
+  background: transparent;
+}
+
+/* RESET DEL RIENTRO PER ALLINEAMENTO MILLIMETRICO */
+.nav-logo, .logo, .navbar-brand, #home h1, #home p {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-align: left !important;
+}
+
+/* 2. IL TUO NOME */
+#home h1 { 
+  max-width: 800px; 
+  font-size: clamp(2.2rem, 4.5vw, 5rem); 
+  line-height: 1.1; 
+  margin-top: 40px; 
+  margin-bottom: 56px !important;
+  color: #f7f4ef !important; 
+}
+
+/* 3. LA DESCRIZIONE */
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 3.5rem; /* MODIFICATO: Spazio aumentato per staccare la descrizione */
   display: flex;
+  flex-direction: column;
+}
+
+/* 5. LINK / PULSANTE "SCOPRI I MIEI LAVORI ↓" */
+#home a, #home .scopri-lavori {
+  align-self: flex-start !important; 
+  color: #f7f4ef !important;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* 2. PROGETTI */
+#progetti {
+  background: transparent;
+  color: #1c1a19;  
+}
+
+/* 3. ABOUT ME */
+#about {
+  background: transparent;
+  color: #1c1a19; 
+}
+
+/* 4. CONTATTI */
+#contatti h3,
+#contatti a.social-link { 
+  display: contents; /* Annulla il blocco h3 e l'aspetto da pulsante */
+}
+
+/* 5. FOOTER */
+.footer {
+  background-color: transparent;
+  color: rgba(247, 244, 239, 0.6);
+}
+
+/* GRIGLIA CONDIVISA */
+nav, header, .navbar, #home {
+  padding-left: max(5%, calc((100% - 1200px) / 2)) !important;
+  padding-right: max(5%, calc((100% - 1200px) / 2)) !important;
+  box-sizing: border-box;
+}
+
+/* 1. NAV BAR E STRUTTURA ORIZZONTALE */
+nav, header, .navbar {
+  display: flex !important;
+  flex-direction: row !important;      
+  justify-content: space-between !important; 
+  align-items: center !important;      
+  
+  padding-top: 25px !important;       
+  padding-bottom: 15px !important;    
+  
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  background: linear-gradient(180deg,
+    #1a0214 0%,
+    #2b041f 30%,
+    #3b052c 60%,
+    #52163f 100%
+  ) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+nav > *, header > *, .navbar > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* STRATO DI VETRO SMERIGLIATO */
+nav::before, header::before, .navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+  transition: backdrop-filter var(--transition);
+}
+
+/* CONTENITORE DEI LINK NAVBAR */
+.nav-links, .menu, nav ul { 
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1rem; /* Ridotto leggermente per compensare il padding interno dei bottoni */
+  list-style: none;
+  margin: 0;
+  padding: 0;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.4rem 5vw;
-  background: rgba(247, 244, 239, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(140, 123, 107, 0.15);
+}
+
+/* TESTO SCURO SU SEZIONI CHIARE */
+header a, nav a, .navbar a, .nav-logo, .logo, .nav-links a {
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+nav.nav-on-light a,
+header.nav-on-light a,
+.navbar.nav-on-light a,
+.nav-on-light .nav-logo,
+.nav-on-light .logo,
+.nav-on-light .nav-links a {
+  color: var(--ink) !important;
+}
+
+nav.nav-on-light .nav-toggle span,
+header.nav-on-light .nav-toggle span,
+.navbar.nav-on-light .nav-toggle span {
+  background: var(--ink);
 }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   color: var(--ink);
 }
 
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
-
+/* TASTI NAVBAR CON EFFETTO PILLOLA/CAPSULA IN HOVER */
 .nav-links a {
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
   position: relative;
-  padding-bottom: 2px;
-  transition: color var(--transition);
+  
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  
+  transition: color var(--transition), background var(--transition), backdrop-filter var(--transition), -webkit-backdrop-filter var(--transition);
 }
 
+/* Rimosso il vecchio effetto della linea inferiore */
 .nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 1px;
-  background: var(--accent);
-  transition: width var(--transition);
+  display: none !important;
 }
 
-.nav-links a:hover { color: var(--accent); }
-.nav-links a:hover::after { width: 100%; }
+/* Hover su sfondo scuro (Hero) */
+.nav-links a:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hover su sfondo chiaro (Scroll attivo) */
+.nav-on-light .nav-links a:hover {
+  color: var(--ink) !important;
+  background: rgba(19, 19, 19, 0.08); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 
 .nav-toggle {
   display: none;
@@ -93,7 +285,7 @@ body {
   transition: var(--transition);
 }
 
-/* ========== HERO ========== */
+/* ========== HERO COSTRUTTI VARI ========== */
 .hero {
   min-height: 100vh;
   padding: 0 5vw;
@@ -105,23 +297,15 @@ body {
   padding-top: 80px;
 }
 
+/* RIMOSSA LA SCRITTA DESIGN */
 .hero-bg-text {
-  position: absolute;
-  bottom: -0.15em;
-  right: -0.05em;
-  font-family: var(--font-display);
-  font-size: clamp(8rem, 20vw, 22rem);
-  font-weight: 600;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(140, 123, 107, 0.12);
-  pointer-events: none;
-  line-height: 1;
-  user-select: none;
+  display: none !important;
 }
 
 .hero-content {
   max-width: 720px;
   z-index: 1;
+  margin-top: 20vh !important; 
 }
 
 .hero-eyebrow {
@@ -136,51 +320,92 @@ body {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.01em;
-  margin-bottom: 1.8rem;
+  margin-bottom: 3.5rem; 
   display: flex;
   flex-direction: column;
+}
+
+.hero-name .name-line:first-child {
+  white-space: nowrap;
 }
 
 .name-line {
   display: block;
   animation: fadeUp 0.8s ease both;
 }
+
 .name-line:nth-child(1) { animation-delay: 0.1s; }
 .name-line:nth-child(2) { animation-delay: 0.2s; }
 .name-line:nth-child(3) { animation-delay: 0.3s; }
 .name-line.italic { font-style: italic; color: var(--warm-mid); }
 
 .hero-tagline {
-  font-size: 1.05rem;
-  color: var(--warm-mid);
-  max-width: 460px;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #f7f4ef;
+  opacity: 0.9;
+  max-width: none;
+  white-space: nowrap;
   margin-bottom: 2.5rem;
   font-weight: 300;
   animation: fadeUp 0.8s 0.4s ease both;
 }
 
+/* PULSANTE HERO CON ALLARGAMENTO AUTOMATICO E COMPARSA FRECCIA */
 .hero-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  text-align: center;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
-  border-bottom: 1.5px solid var(--accent);
-  padding-bottom: 3px;
-  transition: var(--transition);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 50px;
+  padding: 0.9rem 2.2rem;
+  transition: background var(--transition); 
   animation: fadeUp 0.8s 0.5s ease both;
+  margin-top: 250px;
 }
-.hero-cta:hover { color: var(--accent); }
-.hero-cta .arrow { transition: transform var(--transition); }
-.hero-cta:hover .arrow { transform: translateY(4px); }
+
+.hero-cta,
+#home .hero-cta {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.hero-cta:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Freccia nascosta di default senza ingombro */
+.hero-cta .arrow { 
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(-8px);
+  transition: opacity var(--transition), max-width var(--transition), transform var(--transition), margin-left var(--transition);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* La freccia si espande in hover allargando il bottone */
+.hero-cta:hover .arrow { 
+  opacity: 1;
+  max-width: 20px;          
+  margin-left: 0.6rem;      
+  transform: translateX(0); 
+}
 
 .hero-side {
   z-index: 1;
@@ -221,12 +446,19 @@ body {
   color: var(--cream);
 }
 
+.section-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 .section-header {
   display: flex;
   align-items: baseline;
   gap: 1.2rem;
   margin-bottom: 4rem;
-  border-bottom: 1px solid rgba(140,123,107,0.2);
+  border-bottom: 1px solid rgba(104, 97, 86, 0.15); /* Rende la riga visibile anche su fondo chiaro */
   padding-bottom: 1.5rem;
 }
 
@@ -243,6 +475,7 @@ body {
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 300;
   letter-spacing: 0.02em;
+  color: var(--ink); /* Colore scuro di default */
 }
 .section-header h2.light { color: var(--cream); }
 
@@ -255,10 +488,11 @@ body {
 }
 
 .project-card {
-  background: white;
+  background: rgba(234, 230, 221, 0.4); 
+  backdrop-filter: blur(4px); 
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(140,123,107,0.15);
+  border: 1px solid rgba(104, 97, 86, 0.1); 
   transition: transform var(--transition), box-shadow var(--transition);
   max-width: 380px;
   width: 100%;
@@ -277,19 +511,21 @@ body {
   flex-shrink: 0;
 }
 
+/* AGGIORNATO: Colore del placeholder per UX/UI */
+.project-uxui-placeholder {
+  background: #d1e2f3; /* Celeste pastello */
+}
+
+/* AGGIORNATO: Colore del placeholder per Graphic Design */
+.project-graphic-placeholder {
+  background: #f3d1e2; /* Rosa pastello */
+}
+
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.placeholder-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  color: rgba(140,123,107,0.5);
 }
 
 .project-info {
@@ -311,6 +547,7 @@ body {
   font-size: 1.4rem;
   font-weight: 400;
   margin-bottom: 0.6rem;
+  color: var(--ink); /* Forza il colore scuro del testo */
 }
 
 .project-info p {
@@ -366,23 +603,24 @@ body {
   display: block;
 }
 
-.about-intro {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
+.about-intro { 
+  font-family: var(--font-body);       
+  font-size: 1.15rem;                   
   font-weight: 300;
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
-  color: var(--cream);
+  line-height: 1.8;                    
+  margin-bottom: 1.6rem;               
+  color: var(--ink);       
 }
 
 .about-intro em {
   font-style: italic;
-  color: var(--accent);
+  font-weight: 700; /* Rende il testo in bold */
+  color: #A2146F !important; 
 }
 
-.about-text p {
-  font-size: 0.95rem;
-  color: rgba(247,244,239,0.65);
+.about-text p { 
+  font-size: 1.15rem;
+  color: var(--ink);
   margin-bottom: 2rem;
 }
 
@@ -397,61 +635,129 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.4rem 1rem;
-  border: 1px solid rgba(201,169,110,0.35);
+  border: 1px solid rgba(163, 184, 153, 0.4);
   border-radius: 100px;
-  color: var(--accent);
+  color: #A2146F !important;
   transition: var(--transition);
 }
 .skill-tag:hover {
-  background: var(--accent);
+  background: #A2146F !important;;
   color: var(--dark-bg);
 }
 
-/* ========== CONTATTI ========== */
+/* ========== CONTATTI (LINK CON ANIMAZIONE UNIFICATA) ========== */
 .contact-layout {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: max(5%, calc((100% - 1200px) / 2)) !important;
+  padding-right: max(5%, calc((100% - 1200px) / 2)) !important;
+  margin: 0;
 }
 
 .contact-intro {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 300;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   line-height: 1.3;
 }
 .contact-intro em { font-style: italic; color: var(--accent); }
 
-.contact-email {
-  display: inline-block;
-  font-size: 1.1rem;
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1.5px solid var(--accent);
-  padding-bottom: 2px;
-  margin-bottom: 2.5rem;
-  transition: color var(--transition);
-  font-weight: 300;
-}
-.contact-email:hover { color: var(--accent); }
-
+/* Contenitore verticale per i contatti per un perfetto allineamento a sinistra */
 .social-links {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  flex-direction: column; /* Dispone le voci una sotto l'altra come nell'immagine */
+  gap: 0.8rem;             /* Spazio uniforme e pulito tra le righe */
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Stile base comune per i link (Email e LinkedIn) */
+.contact-email,
+.social-link {
+  color: #ffffff !important;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 300;
+  transition: color var(--transition); /* Transizione fluida solo sul colore */
+}
+
+.contact-email {
+  margin-bottom: 0; /* Bilanciato lo spazio inferiore dato il nuovo padding */
+}
+
+/* Animazione di sottolineatura (stile LinkedIn) applicata a entrambi */
+.contact-email::after,
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 1px;
+  background: #A3B899; /* Il tuo colore verde salvia */
+  transition: width var(--transition);
+}
+
+/* Attivazione animazione al passaggio del mouse */
+.contact-email:hover::after,
+.social-link:hover::after {
+  width: 100%;
+}
+
+/* Effetto al passaggio del mouse: cambia solo il colore */
+.contact-email:hover,
+.social-link:hover {
+  color: #A3B899 !important;
+}
+
+/* Telefono: Stile fisso, NESSUN effetto hover */
+.phone-text {
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  /* Nessun ::after o hover qui, quindi rimane statico */
+}
+
+/* Effetto al passaggio del mouse: cambia solo il colore */
+.contact-email:hover,
+.social-link:hover {
+  color: #A3B899 !important;
+}
+
+/* Assicuriamoci che il contenitore sia ordinato */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .social-link {
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--warm-mid);
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #ffffff;
   transition: color var(--transition);
+  position: relative;
+  padding-bottom: 2px;
 }
-.social-link:hover { color: var(--accent); }
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+.social-link:hover::after { width: 100%; }
 
 /* ========== FOOTER ========== */
 .footer {
@@ -459,7 +765,7 @@ body {
   border-top: 1px solid rgba(140,123,107,0.15);
   text-align: center;
   font-size: 0.78rem;
-  color: var(--warm-mid);
+  color: white;
   letter-spacing: 0.05em;
 }
 
@@ -493,21 +799,6 @@ body {
   margin-bottom: 80px;
 }
 
-.detail-img-wrap {
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.detail-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .detail-tag {
   display: inline-block;
   font-family: var(--font-body);
@@ -526,14 +817,6 @@ body {
   line-height: 1.2;
   margin-bottom: 20px;
   color: var(--ink);
-}
-
-.detail-text p {
-  font-family: var(--font-body);
-  font-size: 0.97rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 16px;
 }
 
 .badge-row {
@@ -572,12 +855,29 @@ body {
   object-fit: cover;
 }
 
-/* Colori di sfondo specifici per categoria */
+.gallery-item.uxui         { background: #d8dfe8; }
+.gallery-item.graphic      { background: #e8d8df; }
+
+/* ========== DETAIL-IMG-WRAP ========== */
+.detail-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #eee;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .detail-img-wrap.branding  { background: #f0ede8; }
 .detail-img-wrap.uxui      { background: #d8dfe8; }
 .detail-img-wrap.graphic   { background: #e8d8df; }
-.gallery-item.uxui         { background: #d8dfe8; }
-.gallery-item.graphic      { background: #e8d8df; }
 
 /* ========== SEZIONI DETTAGLIO PROGETTO ========== */
 .project-detail {
@@ -604,22 +904,6 @@ body {
 
 .detail-inner.reverse > * {
   direction: ltr;
-}
-
-.detail-img-wrap {
-  border-radius: 16px;
-  overflow: hidden;
-  background: #eee;
-  aspect-ratio: 4/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.detail-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .detail-text .detail-tag {
@@ -704,8 +988,13 @@ body {
   transform: translateY(0);
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
+/* Ottimizzazione Responsive Mobile */
+@media (max-width: 576px) {
+  .social-links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-left: -1.6rem;
+  }
   .nav-links {
     display: none;
     position: absolute;
@@ -721,7 +1010,11 @@ body {
 
   .hero { flex-direction: column; justify-content: center; text-align: left; }
   .hero-side { display: none; }
-  .hero-bg-text { font-size: 40vw; }
+  
+  /* RIMOSSA ANCHE DA MOBILE */
+  .hero-bg-text { 
+    display: none !important;
+  }
 
   .about-layout { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo-wrap { max-width: 240px; }
